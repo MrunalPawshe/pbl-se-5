@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css"
+    "\\css",
+    "\\js"
   ],
+  "SelectedNode": "\\css\\styles.scss",
   "PreviewInSolutionExplorer": false
 }
