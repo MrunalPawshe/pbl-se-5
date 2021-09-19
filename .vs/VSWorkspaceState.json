@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\css",
+    "\\img",
+    "\\js",
+    "\\__MACOSX"
   ],
-  "SelectedNode": "\\profile.html",
+  "SelectedNode": "\\js\\survey.js",
   "PreviewInSolutionExplorer": false
 }

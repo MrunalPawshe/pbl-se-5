@@ -47,6 +47,7 @@
                            title="Profile"
                            data-placement="bottom"><span class="fa fa-smile-o fa-lg"></span></a>
                     </li>
+                    
                 </ul>
                 <span class="navbar-text">
                     <a id="loginButton" role="button"><span class="fa fa-sign-in"></span> Login / Sign-up </a>
@@ -77,9 +78,18 @@
 
 
         <div class="row row-content align-items-center">
-            <div class="col-12">
-                
-                
+            
+            <div class="col-12 wrapper">
+                <div class="wrap">
+                    <form class="selecting_survey" name="survey" onsubmit="submitForm(event)">
+                        <h1 style="color:purple">Enter your name below</h1>
+                        <input type="text" name="username" />
+                        <button type="submit" onclick="return generalSurv()">General</button><!--onclick="return submitForm"-->
+                        <button type="submit">Anxiety</button>
+                        <button type="submit" onclick="return depressionTest()">Depression</button>
+
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -102,6 +112,7 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/survey.js"></script>
     <!-- endbuild -->
 
 </body>
