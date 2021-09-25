@@ -31,7 +31,7 @@ let questions = [
             "No"
         ]
     },
-
+    
     {
         id: 4,
         question: "Are you avoiding new people, too many people, places, situations, the unfamiliar?",
@@ -71,7 +71,7 @@ let questions = [
     {
         id: 8,
         question: "Are you capable of enjoying things right now?",
-        answer: "Yes",
+        answer: "No",
         options: [
             "Yes",
             "No"
@@ -97,8 +97,8 @@ let questions = [
     },
     {
         id: 11,
-        question: "How 'supported' you feel by others around you - your friends, family, or otherwise?",
-        answer: "Yes",
+        question: "Do you feel 'supported' by others around you - your friends, family, or otherwise?",
+        answer: "No",
         options: [
             "Yes",
             "No"
@@ -133,7 +133,7 @@ let questions = [
     },
     {
         id: 15,
-        question: "Do you have low physical and mental energy level??",
+        question: "Do you have low physical and mental energy level?",
         answer: "Yes",
         options: [
             "Yes",
@@ -160,7 +160,7 @@ let questions = [
     },
     {
         id: 18,
-        question: "Are you having feelings of hopelessness",
+        question: "Are you having feelings of hopelessness?",
         answer: "Yes",
         options: [
             "Yes",
@@ -193,16 +193,9 @@ let questions = [
             "Yes",
             "No"
         ]
-    },
-    {
-        id: 21,
-        question: "",
-        answer: "Yes",
-        options: [
-            "Yes",
-            "No"
-        ]
     }
+    
+    
 ]
 
 // JavaScript source code
@@ -219,12 +212,68 @@ function depressionTest() {
 }
 
 let question_count = 0;
+let point = 0;
+
 function next() {
+
+    let user_answer = document.querySelector("li.option.activeo").innerHTML;
+    if (user_answer == questions[question_count].answer) {
+        point += 1;
+        sessionStorage.setItem("points", point);
+    }
+    else {
+        point = point;
+        sessionStorage.setItem("points", point);
+    }
+    if (question_count == questions.length - 1) {
+
+        /*let final = "zero";
+        sessionStorage.setItem("final", final);
+
+        if (points == 1) {
+            let final = "zero";
+         }*/
+
+        location.href = "end.html";
+        return;
+    }
+
+    //take answer from user
+    
+
     question_count++;
     show(question_count);    
 }
 
 function show(count) {
     let question = document.getElementById("questions");
-    question.innerHTML = "<h2>" + questions[count].question + "</h2>";
+    question.innerHTML = `
+    <h2>${questions[count].question}</h2>
+    <ul class="option_grp">
+        <li class="option">${questions[count].options[0]}</li>
+        <li class="option">${questions[count].options[1]}</li>
+        
+    </ul>
+    `;
+
+    toggleActive();
 } 
+
+
+//toggle to select option
+function toggleActive() {
+    let option = document.querySelectorAll("li.option");
+    for (let i = 0; i < option.length; i++) {
+        option[i].onclick = function () {
+            for (let j = 0; j < option.length; j++) {
+                //check if active
+                if (option[j].classList.contains("activeo")) {
+                    //remove  activeo class
+                    option[j].classList.remove("activeo");
+                }
+            }
+            //add active
+            option[i].classList.add("activeo");
+        }
+    }
+};

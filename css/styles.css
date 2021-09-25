@@ -20,8 +20,11 @@
     background-color: #8e32d8;
     box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.3);
     z-index:1;
+}
 
-
+.activeo {
+    background-color: #b200ff !important;
+    color: #000000 !important;
 }
 
 .survey_body {
@@ -111,9 +114,17 @@
     width: 100%; 
 }
 
-.selecting_survey button:hover{
+.user_name,
+.user_points,
+.user_final{
+    color: indigo;
+    text-align:center;
+    margin:15px
+}
+
+.selecting_survey button:hover {
     transform: translateY(-5px);
-    cursor:pointer;
+    cursor: pointer;
 }
 
     .row-content {
@@ -175,3 +186,4 @@ body {
 
 .modal-body {
   background: #FDD7E4; }
+
